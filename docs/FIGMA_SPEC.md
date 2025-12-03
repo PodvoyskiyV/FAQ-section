@@ -7,13 +7,13 @@
 ### 1. FAQ Section (Основной контейнер)
 
 **Размеры:**
-- Max-width: 1200px
+- Width: 100% (динамическая ширина)
 - Padding: 48px (Desktop), 32px 24px (Tablet), 24px 16px (Mobile)
 
 **Стили:**
-- Background: #FFFFFF
-- Border-radius: 12px (Desktop), 8px (Mobile 480px)
-- Shadow: 0 2px 8px rgba(0, 0, 0, 0.08)
+- Background: transparent (прозрачный)
+- Border-radius: 0
+- Shadow: отсутствует
 
 ### 2. FAQ Title (Заголовок)
 
@@ -304,7 +304,7 @@
 
 Создайте следующие фреймы:
 
-- **Desktop:** 1200px width
+- **Desktop:** динамическая ширина (100% экрана)
 - **Tablet:** 768px width
 - **Mobile:** 480px width
 
