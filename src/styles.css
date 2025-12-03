@@ -322,6 +322,15 @@ body {
         border-radius: 16px;
         line-height: 32px;
         font-weight: 600;
+        background-color: transparent;
+    }
+
+    .faq-item:not(.active) .faq-question {
+        background-color: transparent;
+    }
+
+    .faq-question[aria-expanded="false"] .faq-icon svg rect {
+        fill: #F3F4F6;
     }
 
     .question-text {
@@ -406,6 +415,15 @@ body {
         border-radius: 16px;
         line-height: 32px;
         font-weight: 600;
+        background-color: transparent;
+    }
+
+    .faq-item:not(.active) .faq-question {
+        background-color: transparent;
+    }
+
+    .faq-question[aria-expanded="false"] .faq-icon svg rect {
+        fill: #F3F4F6;
     }
 
     .question-text {
