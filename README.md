@@ -13,9 +13,8 @@
 ```
 KapitalBank/
 ├── src/                    # Исходный код
-│   ├── index.html         # Основная HTML структура
-│   ├── styles.css         # Все стили компонента (356 строк)
-│   └── script.js          # JavaScript логика (62 строки)
+│   ├── styles.css         # Все стили компонента
+│   └── script.js          # JavaScript логика
 ├── docs/                   # Документация
 │   ├── DOCUMENTATION.md   # Детальная документация проекта
 │   ├── COMPONENT_SPEC.md  # Спецификация компонентов и состояний
@@ -24,6 +23,7 @@ KapitalBank/
 │   ├── FIGMA_SPEC.md     # Спецификация для воссоздания в Figma
 │   ├── GITHUB_SETUP.md   # Инструкция по загрузке на GitHub
 │   └── PROJECT_SUMMARY.md # Итоговая сводка проекта
+├── index.html             # Основная HTML структура (в корне)
 ├── README.md              # Основная документация (этот файл)
 ├── .gitignore            # Игнорируемые файлы для Git
 └── LICENSE               # Лицензия проекта
