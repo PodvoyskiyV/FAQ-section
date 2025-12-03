@@ -7,8 +7,8 @@
 ### 1. FAQ Section (Основной контейнер)
 
 **Размеры:**
-- Width: 100% (динамическая ширина)
-- Padding: 48px (Desktop), 32px 24px (Tablet), 24px 16px (Mobile)
+- Width: 100% (динамическая ширина, растягивается на всю ширину экрана)
+- Padding: 40px 150px (Desktop), 24px (Mobile)
 
 **Стили:**
 - Background: transparent (прозрачный)
