@@ -12,14 +12,20 @@
 
 ```
 KapitalBank/
-├── index.html              # Разметка компонента
-├── styles.css              # Все стили (Desktop + Mobile)
-├── script.js               # Логика взаимодействия
+├── index.html              # Разметка компонента (точка входа)
+├── src/                    # Исходный код
+│   ├── styles.css         # Все стили (Desktop + Mobile)
+│   └── script.js          # Логика взаимодействия
+├── docs/                   # Документация
+│   ├── DOCUMENTATION.md   # Детальная документация
+│   ├── COMPONENT_SPEC.md  # Спецификация компонентов
+│   ├── DESIGN_SYSTEM.md   # Дизайн-система
+│   ├── ARCHITECTURE.md    # Этот файл
+│   ├── FIGMA_SPEC.md     # Спецификация для Figma
+│   ├── GITHUB_SETUP.md   # Инструкция по GitHub
+│   └── PROJECT_SUMMARY.md # Итоговая сводка
 ├── README.md              # Основная документация
-├── DOCUMENTATION.md        # Детальная документация
-├── COMPONENT_SPEC.md      # Спецификация компонентов
-├── DESIGN_SYSTEM.md       # Дизайн-система
-├── ARCHITECTURE.md        # Этот файл
+├── LICENSE                # Лицензия
 └── .gitignore            # Игнорируемые файлы
 ```
 
