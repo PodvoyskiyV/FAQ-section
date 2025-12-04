@@ -4,24 +4,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const faqSubQuestions = document.querySelectorAll('.faq-subquestion');
 
     function updateBorders() {
-        // Сначала убираем все классы hide-border
         faqItems.forEach((item) => {
-            item.classList.remove('hide-border');
+            const nextItem = item.nextElementSibling;
+            
+            if (nextItem) {
+                const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+                const nextIsHovered = !isTouchDevice && nextItem.matches(':hover');
+                const nextIsActive = nextItem.classList.contains('active');
+                
+                if (nextIsHovered || nextIsActive) {
+                    item.classList.add('hide-border');
+                } else {
+                    item.classList.remove('hide-border');
+                }
+            } else {
+                item.classList.remove('hide-border');
+            }
         });
         
-        // Затем для каждого элемента, который hover или active, скрываем границу у предыдущего
-        faqItems.forEach((item) => {
-            const isHovered = item.matches(':hover');
-            const isActive = item.classList.contains('active');
-            const prevItem = item.previousElementSibling;
-            
-            if (prevItem && (isHovered || isActive)) {
-                prevItem.classList.add('hide-border');
-            }
+        requestAnimationFrame(() => {
+            faqItems.forEach((item) => {
+                void item.offsetHeight;
+            });
         });
     }
 
-    // Универсальная функция для обработки кликов
     function handleQuestionClick(element, containerClass, stopPropagation = false) {
         return function(e) {
             if (stopPropagation) e.stopPropagation();
@@ -37,11 +44,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.setAttribute('aria-expanded', 'true');
             }
             
-            if (!stopPropagation) updateBorders();
+            if (!stopPropagation) {
+                requestAnimationFrame(() => {
+                    updateBorders();
+                    setTimeout(() => updateBorders(), 50);
+                    setTimeout(() => updateBorders(), 200);
+                });
+            }
         };
     }
 
-    // Универсальная функция для обработки клавиатуры
     function handleKeydown(e) {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
@@ -49,22 +61,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Обработка основных вопросов
     faqQuestions.forEach((question) => {
         question.addEventListener('click', handleQuestionClick(question, '.faq-item', false));
         question.addEventListener('keydown', handleKeydown);
     });
 
-    // Обработка подвопросов
     faqSubQuestions.forEach((subQuestion) => {
         subQuestion.addEventListener('click', handleQuestionClick(subQuestion, '.faq-subitem', true));
         subQuestion.addEventListener('keydown', handleKeydown);
     });
 
-    // Обработка hover для всех элементов
     faqItems.forEach((item) => {
         item.addEventListener('mouseenter', updateBorders);
         item.addEventListener('mouseleave', updateBorders);
     });
+    
+    updateBorders();
 });
 

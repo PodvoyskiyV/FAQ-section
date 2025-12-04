@@ -1,344 +1,292 @@
-# Спецификация для Figma - FAQ Component
+# Спецификация для Figma - FAQ Component KapitalBank
 
 Этот документ содержит все необходимые данные для воссоздания компонента FAQ в Figma.
 
-## Структура компонентов
+## Цветовая палитра
 
-### 1. FAQ Section (Основной контейнер)
+Создайте следующие цвета в Figma:
+
+| Название | HEX | Тип |
+|----------|-----|-----|
+| Black | `#101010` | Solid |
+| White | `#FFFFFF` | Solid |
+| Gray Light | `#F3F4F6` | Solid |
+| Gray | `#f5f5f5` | Solid |
+
+## Типографика
+
+### Текстовые стили
+
+**Desktop:**
+- **FAQ Title:** Roboto Bold, 46px, #101010
+- **Question Text:** Roboto SemiBold, 24px, #101010, Line-height: 28px
+- **Subquestion Text:** Roboto SemiBold, 20px, #101010, Line-height: 28px
+- **Answer Text:** Roboto Regular, 18px, #101010, Line-height: 1.7
+
+**Mobile (≤768px):**
+- **FAQ Title:** Roboto Bold, 28px, #101010
+- **Question Text:** Roboto SemiBold, 22px, #101010, Line-height: 32px
+- **Subquestion Text:** Roboto SemiBold, 20px, #101010, Line-height: 28px
+- **Answer Text:** Roboto Regular, 16px, #101010
+
+**Small Mobile (≤480px):**
+- **FAQ Title:** Roboto Bold, 24px, #101010
+- **Question Text:** Roboto SemiBold, 22px, #101010, Line-height: 32px
+- **Subquestion Text:** Roboto SemiBold, 20px, #101010, Line-height: 28px
+- **Answer Text:** Roboto Regular, 16px, #101010
+
+## Компоненты
+
+### 1. FAQ Section
 
 **Размеры:**
-- Width: 100% (динамическая ширина, растягивается на всю ширину экрана)
+- Width: 100% (Auto Layout)
 - Padding: 40px 150px (Desktop), 24px (Mobile)
 
 **Стили:**
-- Background: transparent (прозрачный)
+- Background: Transparent
 - Border-radius: 0
 - Shadow: отсутствует
 
-### 2. FAQ Title (Заголовок)
+**Auto Layout:**
+- Direction: Vertical
+- Alignment: Stretch
+- Gap: 40px (Desktop), 32px (Mobile)
 
-**Текст:**
-- Content: "Частые вопросы"
-- Font: Roboto Bold
-- Size: 46px (Desktop), 28px (Tablet), 24px (Mobile)
-- Color: #101010
-- Line-height: Auto
-- Margin-bottom: 40px (Desktop), 32px (Tablet), 24px (Mobile)
-
-### 3. FAQ Item (Элемент вопроса)
+### 2. FAQ Item
 
 **Размеры:**
-- Width: 100%
+- Width: 100% (Fill container)
 - Min-height: 80px (Desktop), 72px (Mobile)
 - Border-radius: 16px
-- Gap между элементами: 4px
 
-**Состояния:**
+**Состояния (Component Variants):**
 
-#### Default (Закрыт)
+**Default (Закрыт):**
 - Background: Transparent
-- Border-bottom: 1px solid #F3F4F6 (с отступами 16px слева/справа)
+- Border-bottom: 1px solid #F3F4F6 (с отступами 16px)
 
-#### Active (Открыт)
+**Active (Открыт):**
 - Background: #F3F4F6
-- Border-bottom: скрыта у предыдущего элемента
+- Border-bottom: отсутствует
 
-#### Hover
+**Hover:**
 - Background кнопки: #f5f5f5
-- Border-bottom предыдущего элемента: скрыта
 
-### 4. FAQ Question Button (Кнопка вопроса)
+### 3. FAQ Question Button
 
 **Размеры:**
-- Width: 100%
-- Min-height: 80px (Desktop), 72px (Mobile)
+- Width: 100% (Fill container)
+- Height: 80px (Desktop), 72px (Mobile)
 - Padding: 0 16px (Desktop), 12px (Mobile)
 - Border-radius: 16px
 
+**Auto Layout:**
+- Direction: Horizontal
+- Alignment: Center
+- Justify: Space between
+- Gap: 16px
+
 **Состояния:**
+- Default: Transparent background
+- Hover: #f5f5f5 background
+- Active: Transparent background (наследует от родителя)
 
-#### Default
-- Background: Transparent
-- Text color: #101010
-- Icon background: #F3F4F6
-- Icon arrow: #101010, направлена вниз
-
-#### Hover
-- Background: #f5f5f5
-- Icon background: #FFFFFF (для основных вопросов)
-- Icon background: #F3F4F6 (для подвопросов - не меняется)
-
-#### Active
-- Background: Transparent (наследует от .faq-item.active)
-- Icon: повернута на 180° (стрелка вверх)
-
-### 5. Question Text (Текст вопроса)
+### 4. Question Text
 
 **Стили:**
-- Font: Roboto SemiBold (600)
+- Font: Roboto SemiBold
 - Size: 24px (Desktop), 22px (Mobile)
-- Line-height: 28px (Desktop), 32px (Mobile)
 - Color: #101010
+- Line-height: 28px (Desktop), 32px (Mobile)
 - Padding: 16px 16px 16px 24px (Desktop), 0 12px 0 0 (Mobile)
 
-### 6. FAQ Icon (Иконка стрелки)
+### 5. FAQ Icon
 
 **Размеры:**
 - Width: 48px
 - Height: 48px
-- Border-radius: 24px (круглая)
-
-**Элементы:**
-- Background circle: #F3F4F6 (Default), #FFFFFF (Hover основных вопросов)
-- Arrow path: M18 21L24 27L30 21
-- Arrow color: #101010
-- Arrow stroke-width: 2px
-- Arrow stroke-linecap: round
-- Arrow stroke-linejoin: round
-
-**Анимация:**
-- При открытии: поворот на 180° вокруг центра
-
-### 7. FAQ Answer (Ответ)
-
-**Размеры:**
-- Padding: 0 48px 0 48px (Desktop закрыт), 0 48px 24px 48px (Desktop открыт)
-- Padding: 0 12px 0 20px (Mobile закрыт), 0 12px 12px 20px (Mobile открыт)
+- Border-radius: 24px (круг)
 
 **Состояния:**
-- Закрыт: высота 0, overflow: hidden
-- Открыт: высота auto, контент виден
 
-### 8. Answer Text (Текст ответа)
+**Default:**
+- Background: #F3F4F6
+- Стрелка: #101010, направлена вниз
+
+**Hover (основной вопрос):**
+- Background: #FFFFFF
+- Стрелка: #101010
+
+**Active (открыт):**
+- Background: #FFFFFF
+- Стрелка: #101010, повернута на 180°
+
+**SVG Path для стрелки:**
+```
+M18 21L24 27L30 21
+```
+- Stroke: #101010
+- Stroke-width: 2
+- Stroke-linecap: round
+- Stroke-linejoin: round
+
+### 6. FAQ Answer
+
+**Размеры:**
+- Width: 100% (Fill container)
+- Padding: 0 48px 24px 48px (Desktop), 0 12px 12px 20px (Mobile)
 
 **Стили:**
-- Font: Roboto Regular (400)
+- Font: Roboto Regular
 - Size: 18px (Desktop), 16px (Mobile)
-- Line-height: 1.7
 - Color: #101010
+- Line-height: 1.7 (Desktop)
 
-### 9. FAQ Subquestions (Контейнер подвопросов)
-
-**Размеры:**
-- Gap: 0px
-- Margin-top: 0px
-
-**Состояния:**
-- Скрыт: opacity 0, max-height 0
-- Виден: opacity 1, max-height auto
-
-### 10. FAQ Subitem (Элемент подвопроса)
+### 7. FAQ Subquestions Container
 
 **Размеры:**
-- Аналогично FAQ Item
+- Width: 100% (Fill container)
+- Gap: 0
+
+**Auto Layout:**
+- Direction: Vertical
+- Alignment: Stretch
+- Gap: 0
+
+### 8. FAQ Subitem
+
+**Размеры:**
+- Width: 100% (Fill container)
+- Min-height: 80px (Desktop), 72px (Mobile)
 - Border-radius: 16px
 
 **Состояния:**
-- Default: Background transparent
-- Active: Background #F3F4F6
 
-### 11. FAQ Subquestion Button (Кнопка подвопроса)
+**Default:**
+- Background: Transparent
+
+**Active:**
+- Background: #F3F4F6
+
+### 9. FAQ Subquestion Button
+
+**Размеры:**
+- Width: 100% (Fill container)
+- Height: 80px (Desktop), 72px (Mobile)
+- Padding: 0 16px (Desktop), 12px (Mobile)
+- Border-radius: 16px
+
+**Auto Layout:**
+- Direction: Horizontal
+- Alignment: Center
+- Justify: Space between
+
+### 10. Subquestion Text
 
 **Стили:**
-- Аналогично FAQ Question Button
-- Icon всегда серая (#F3F4F6) при hover
-
-### 12. Subquestion Text (Текст подвопроса)
-
-**Стили:**
-- Font: Roboto SemiBold (600)
+- Font: Roboto SemiBold
 - Size: 20px
-- Line-height: 28px
 - Color: #101010
+- Line-height: 28px
 - Padding: 16px 16px 16px 24px (Desktop), 0 12px 0 0 (Mobile)
 
-### 13. FAQ Subanswer (Ответ подвопроса)
+### 11. FAQ Subanswer
 
-**Стили:**
-- Аналогично FAQ Answer
+**Размеры:**
+- Width: 100% (Fill container)
 - Padding: 0 48px 0 48px (Desktop), 0 12px 0 20px (Mobile)
 
-## Цветовая палитра для Figma
+**Стили:**
+- Font: Roboto Regular
+- Size: 18px (Desktop), 16px (Mobile)
+- Color: #101010
+- Margin-bottom: 24px (Desktop), 12px (Mobile) при активном состоянии
 
-Создайте следующие цвета в Figma:
+## Создание компонентов в Figma
 
-1. **Black Primary**
-   - HEX: #101010
-   - RGB: 16, 16, 16
+### Шаг 1: Создание цветов
 
-2. **White**
-   - HEX: #FFFFFF
-   - RGB: 255, 255, 255
+1. Откройте панель Design System
+2. Создайте цветовые стили для всех цветов из палитры
 
-3. **Gray Light**
-   - HEX: #F3F4F6
-   - RGB: 243, 244, 246
+### Шаг 2: Создание текстовых стилей
 
-4. **Gray**
-   - HEX: #f5f5f5
-   - RGB: 245, 245, 245
+1. Создайте текстовые стили для всех размеров и весов
+2. Используйте шрифт Roboto из Google Fonts
 
-5. **Shadow**
-   - HEX: rgba(0, 0, 0, 0.08)
-   - RGB: 0, 0, 0, Opacity: 8%
+### Шаг 3: Создание иконки стрелки
 
-## Типографика для Figma
+1. Создайте Frame 48x48px
+2. Добавьте круглый фон #F3F4F6
+3. Создайте стрелку используя Path: `M18 21L24 27L30 21`
+4. Stroke: #101010, width: 2px
 
-Создайте текстовые стили:
+### Шаг 4: Создание компонентов
 
-1. **FAQ Title / Desktop**
-   - Font: Roboto
-   - Weight: 700 (Bold)
-   - Size: 46px
-   - Color: #101010
+1. **FAQ Item (Default):**
+   - Frame с Auto Layout (Vertical)
+   - Background: Transparent
+   - Border-radius: 16px
+   - Добавьте границу снизу с отступами
 
-2. **FAQ Title / Tablet**
-   - Font: Roboto
-   - Weight: 700 (Bold)
-   - Size: 28px
-   - Color: #101010
+2. **FAQ Item (Active):**
+   - Скопируйте Default
+   - Background: #F3F4F6
+   - Уберите границу
 
-3. **FAQ Title / Mobile**
-   - Font: Roboto
-   - Weight: 700 (Bold)
-   - Size: 24px
-   - Color: #101010
+3. **FAQ Question Button:**
+   - Frame с Auto Layout (Horizontal)
+   - Добавьте Question Text и FAQ Icon
+   - Создайте варианты: Default, Hover, Active
 
-4. **Question Text / Desktop**
-   - Font: Roboto
-   - Weight: 600 (SemiBold)
-   - Size: 24px
-   - Line-height: 28px
-   - Color: #101010
+4. **FAQ Answer:**
+   - Frame с текстом ответа
+   - Настройте padding
 
-5. **Question Text / Mobile**
-   - Font: Roboto
-   - Weight: 600 (SemiBold)
-   - Size: 22px
-   - Line-height: 32px
-   - Color: #101010
+5. **FAQ Subquestions:**
+   - Frame с Auto Layout (Vertical)
+   - Gap: 0
 
-6. **Subquestion Text**
-   - Font: Roboto
-   - Weight: 600 (SemiBold)
-   - Size: 20px
-   - Line-height: 28px
-   - Color: #101010
+6. **FAQ Subitem:**
+   - Аналогично FAQ Item, но с меньшими размерами
 
-7. **Answer Text / Desktop**
-   - Font: Roboto
-   - Weight: 400 (Regular)
-   - Size: 18px
-   - Line-height: 1.7 (30.6px)
-   - Color: #101010
+### Шаг 5: Создание вариантов
 
-8. **Answer Text / Mobile**
-   - Font: Roboto
-   - Weight: 400 (Regular)
-   - Size: 16px
-   - Line-height: 1.7 (27.2px)
-   - Color: #101010
+Используйте Component Variants для создания состояний:
+- Default / Active
+- Desktop / Mobile
+- Closed / Open
 
-## Компоненты для создания в Figma
+### Шаг 6: Настройка Auto Layout
 
-### Auto Layout настройки
+Для всех компонентов используйте Auto Layout:
+- Правильные padding и gap
+- Alignment: Stretch для вертикальных
+- Justify: Space between для горизонтальных
 
-1. **FAQ Section**
-   - Direction: Vertical
-   - Padding: 48px (Desktop)
-   - Gap: 0px
-   - Alignment: Stretch
-
-2. **FAQ List**
-   - Direction: Vertical
-   - Padding: 0px
-   - Gap: 4px
-   - Alignment: Stretch
-
-3. **FAQ Item**
-   - Direction: Vertical
-   - Padding: 0px
-   - Gap: 0px
-   - Alignment: Stretch
-   - Corner radius: 16px
-
-4. **FAQ Question Button**
-   - Direction: Horizontal
-   - Padding: 0 16px (Desktop), 12px (Mobile)
-   - Gap: 0px
-   - Alignment: Center
-   - Min-height: 80px (Desktop), 72px (Mobile)
-   - Corner radius: 16px
-
-5. **FAQ Answer**
-   - Direction: Vertical
-   - Padding: 0 48px 0 48px (Desktop), 0 12px 0 20px (Mobile)
-   - Gap: 0px
-   - Alignment: Stretch
-
-## Варианты компонентов
-
-Создайте следующие варианты:
-
-### FAQ Item
-- Default (закрыт)
-- Active (открыт)
-- Hover
-
-### FAQ Question Button
-- Default
-- Hover
-- Active
-
-### FAQ Icon
-- Default (стрелка вниз, серый фон)
-- Hover Main (белый фон)
-- Hover Sub (серый фон, не меняется)
-- Active (стрелка вверх, повернута 180°)
-
-### FAQ Subitem
-- Default (закрыт)
-- Active (открыт)
-
-## Breakpoints
+## Фреймы для разных разрешений
 
 Создайте следующие фреймы:
 
-- **Desktop:** динамическая ширина (100% экрана)
+- **Desktop:** динамическая ширина (например, 1440px для примера)
 - **Tablet:** 768px width
 - **Mobile:** 480px width
+- **Small Mobile:** 375px width
 
 ## Инструкция по созданию в Figma
 
 1. Создайте цветовую палитру (см. раздел "Цветовая палитра")
 2. Создайте текстовые стили (см. раздел "Типографика")
-3. Создайте компонент FAQ Icon с вариантами
-4. Создайте компонент FAQ Question Button с вариантами
-5. Создайте компонент FAQ Item с вариантами состояний
-6. Создайте компонент FAQ Subitem
-7. Соберите все в Auto Layout контейнеры
-8. Создайте фреймы для разных breakpoints
-9. Настройте Constraints для адаптивности
-
-## Анимации (для прототипирования)
-
-В Figma можно настроить следующие переходы:
-
-1. **Открытие вопроса:**
-   - Smart Animate
-   - Duration: 300ms
-   - Easing: Ease In and Out
-
-2. **Hover эффекты:**
-   - Instant
-   - Изменение фона
-
-3. **Вращение иконки:**
-   - Smart Animate
-   - Duration: 300ms
-   - Easing: Ease
+3. Создайте компонент иконки стрелки
+4. Создайте базовый компонент FAQ Item
+5. Создайте варианты состояний (Default, Active, Hover)
+6. Создайте компонент FAQ Question Button
+7. Создайте компонент FAQ Answer
+8. Соберите полный компонент FAQ Section
+9. Создайте варианты для Desktop и Mobile
+10. Протестируйте компоненты на разных разрешениях
 
 ---
 
-*Версия спецификации для Figma: 1.0*
-
+*Версия спецификации: 1.0*

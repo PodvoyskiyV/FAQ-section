@@ -1,12 +1,3 @@
-/*
- * ============================================
- * ДЕСКТОП ВЕРСИЯ - ЗАФИКСИРОВАНА
- * ============================================
- * ВНИМАНИЕ: Десктоп версия зафиксирована и не должна изменяться
- * без явного указания. Все изменения должны вноситься только
- * в мобильные версии (медиа-запросы).
- * ============================================
- */
 
 * {
     margin: 0;
@@ -84,7 +75,8 @@ body {
     right: 16px;
     height: 1px;
     background-color: #F3F4F6;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.2s ease;
+    opacity: 1;
 }
 
 .faq-item:last-child::after {
@@ -92,15 +84,9 @@ body {
 }
 
 .faq-item.hide-border::after {
-    opacity: 0;
+    opacity: 0 !important;
 }
 
-.faq-item:has(+ .faq-item:hover)::after,
-.faq-item:has(+ .faq-item.active)::after {
-    opacity: 0;
-}
-
-/* Общие стили для вопросов и подвопросов */
 .faq-question,
 .faq-subquestion {
     width: 100%;
@@ -145,13 +131,11 @@ body {
     border-radius: 16px;
 }
 
-/* Специфичные стили для основных вопросов */
 .faq-question:hover .faq-icon svg rect,
 .faq-question[aria-expanded="true"] .faq-icon svg rect {
     fill: #FFFFFF;
 }
 
-/* Специфичные стили для подвопросов */
 .faq-subquestion:hover .faq-icon svg rect,
 .faq-subquestion[aria-expanded="true"] .faq-icon svg rect {
     fill: #F3F4F6;
@@ -187,7 +171,6 @@ body {
     transform: rotate(180deg);
 }
 
-/* Общие стили для ответов и подответов */
 .faq-answer,
 .faq-subanswer {
     display: grid;
@@ -213,7 +196,6 @@ body {
     padding: 0 48px 0 48px;
 }
 
-/* Общие стили для текста ответов */
 .faq-answer p,
 .faq-subanswer p {
     color: #101010;
@@ -221,7 +203,6 @@ body {
     line-height: 1.7;
 }
 
-/* Стили для подвопросов */
 .faq-subquestions {
     display: flex;
     flex-direction: column;
@@ -290,7 +271,6 @@ body {
     margin-bottom: 24px;
 }
 
-/* Анимация для плавного раскрытия */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -306,15 +286,10 @@ body {
     animation: fadeIn 0.3s ease;
 }
 
-/* ============================================
- * МОБИЛЬНЫЕ ВЕРСИИ
- * ============================================
- * Ниже находятся стили для мобильных устройств.
- * Десктоп версия выше - ЗАФИКСИРОВАНА.
- * ============================================ */
-
-/* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
+    .faq-item:not(.hide-border)::after {
+        opacity: 1 !important;
+    }
     .faq-section {
         padding: 24px;
     }
@@ -364,7 +339,6 @@ body {
         padding: 0 12px 12px 20px;
     }
 
-    /* Мобильные стили для подвопросов */
     .faq-subquestion {
         min-height: 72px;
         font-size: 16px;

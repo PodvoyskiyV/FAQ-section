@@ -1,0 +1,262 @@
+{
+  "name": "FAQ Component - KapitalBank",
+  "version": "1.0",
+  "description": "Спецификация компонента FAQ для импорта в Figma",
+  "colors": {
+    "black": {
+      "hex": "#101010",
+      "name": "Black",
+      "usage": "Основной текст, иконки стрелок"
+    },
+    "white": {
+      "hex": "#FFFFFF",
+      "name": "White",
+      "usage": "Фон страницы, фон иконки при hover/active"
+    },
+    "grayLight": {
+      "hex": "#F3F4F6",
+      "name": "Gray Light",
+      "usage": "Фон активного блока, фон иконки, границы"
+    },
+    "gray": {
+      "hex": "#f5f5f5",
+      "name": "Gray",
+      "usage": "Hover состояние кнопок"
+    }
+  },
+  "typography": {
+    "fontFamily": "Roboto",
+    "weights": [400, 500, 600, 700],
+    "styles": {
+      "desktop": {
+        "title": {
+          "size": 46,
+          "weight": 700,
+          "lineHeight": "auto",
+          "color": "#101010"
+        },
+        "question": {
+          "size": 24,
+          "weight": 600,
+          "lineHeight": 28,
+          "color": "#101010"
+        },
+        "subquestion": {
+          "size": 20,
+          "weight": 600,
+          "lineHeight": 28,
+          "color": "#101010"
+        },
+        "answer": {
+          "size": 18,
+          "weight": 400,
+          "lineHeight": 1.7,
+          "color": "#101010"
+        }
+      },
+      "mobile": {
+        "title": {
+          "size": 28,
+          "weight": 700,
+          "lineHeight": "auto",
+          "color": "#101010"
+        },
+        "question": {
+          "size": 22,
+          "weight": 600,
+          "lineHeight": 32,
+          "color": "#101010"
+        },
+        "subquestion": {
+          "size": 20,
+          "weight": 600,
+          "lineHeight": 28,
+          "color": "#101010"
+        },
+        "answer": {
+          "size": 16,
+          "weight": 400,
+          "lineHeight": "auto",
+          "color": "#101010"
+        }
+      }
+    }
+  },
+  "components": {
+    "faqSection": {
+      "width": "100%",
+      "padding": {
+        "desktop": {
+          "top": 40,
+          "right": 150,
+          "bottom": 40,
+          "left": 150
+        },
+        "mobile": {
+          "top": 24,
+          "right": 24,
+          "bottom": 24,
+          "left": 24
+        }
+      },
+      "background": "transparent",
+      "borderRadius": 0
+    },
+    "faqItem": {
+      "width": "100%",
+      "minHeight": {
+        "desktop": 80,
+        "mobile": 72
+      },
+      "borderRadius": 16,
+      "gap": 4,
+      "states": {
+        "default": {
+          "background": "transparent",
+          "border": {
+            "bottom": {
+              "width": 1,
+              "color": "#F3F4F6",
+              "offset": 16
+            }
+          }
+        },
+        "active": {
+          "background": "#F3F4F6",
+          "border": null
+        },
+        "hover": {
+          "buttonBackground": "#f5f5f5"
+        }
+      }
+    },
+    "faqQuestion": {
+      "width": "100%",
+      "height": {
+        "desktop": 80,
+        "mobile": 72
+      },
+      "padding": {
+        "desktop": {
+          "top": 0,
+          "right": 16,
+          "bottom": 0,
+          "left": 16
+        },
+        "mobile": {
+          "top": 12,
+          "right": 12,
+          "bottom": 12,
+          "left": 12
+        }
+      },
+      "borderRadius": 16,
+      "layout": "horizontal",
+      "justify": "space-between",
+      "align": "center"
+    },
+    "faqIcon": {
+      "width": 48,
+      "height": 48,
+      "borderRadius": 24,
+      "states": {
+        "default": {
+          "background": "#F3F4F6",
+          "arrowColor": "#101010",
+          "arrowDirection": "down"
+        },
+        "hover": {
+          "background": "#FFFFFF",
+          "arrowColor": "#101010"
+        },
+        "active": {
+          "background": "#FFFFFF",
+          "arrowColor": "#101010",
+          "arrowDirection": "up"
+        }
+      },
+      "arrowPath": "M18 21L24 27L30 21",
+      "arrowStroke": {
+        "color": "#101010",
+        "width": 2,
+        "linecap": "round",
+        "linejoin": "round"
+      }
+    },
+    "faqAnswer": {
+      "width": "100%",
+      "padding": {
+        "desktop": {
+          "top": 0,
+          "right": 48,
+          "bottom": 24,
+          "left": 48
+        },
+        "mobile": {
+          "top": 0,
+          "right": 12,
+          "bottom": 12,
+          "left": 20
+        }
+      }
+    },
+    "faqSubquestions": {
+      "width": "100%",
+      "layout": "vertical",
+      "gap": 0,
+      "states": {
+        "hidden": {
+          "opacity": 0,
+          "maxHeight": 0
+        },
+        "visible": {
+          "opacity": 1,
+          "maxHeight": 5000
+        }
+      }
+    },
+    "faqSubitem": {
+      "width": "100%",
+      "minHeight": {
+        "desktop": 80,
+        "mobile": 72
+      },
+      "borderRadius": 16,
+      "states": {
+        "default": {
+          "background": "transparent"
+        },
+        "active": {
+          "background": "#F3F4F6"
+        }
+      }
+    }
+  },
+  "animations": {
+    "duration": {
+      "default": 0.3,
+      "border": 0.2
+    },
+    "easing": {
+      "default": "ease-in-out",
+      "border": "ease"
+    }
+  },
+  "breakpoints": {
+    "desktop": "100% (dynamic)",
+    "tablet": "768px - 1200px",
+    "mobile": "480px - 768px",
+    "smallMobile": "< 480px"
+  },
+  "instructions": {
+    "step1": "Создайте цветовую палитру в Figma Design System",
+    "step2": "Создайте текстовые стили для всех размеров",
+    "step3": "Создайте компонент иконки стрелки (48x48px, круглый фон)",
+    "step4": "Создайте базовый компонент FAQ Item с Auto Layout",
+    "step5": "Создайте варианты состояний (Default, Active, Hover)",
+    "step6": "Соберите полный компонент FAQ Section",
+    "step7": "Создайте варианты для Desktop и Mobile",
+    "step8": "Протестируйте на разных разрешениях"
+  }
+}
+
